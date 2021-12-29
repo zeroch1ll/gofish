@@ -4,7 +4,7 @@ import time
 
 class Deck(object):
 	"""A deck of cards"""
-	def __init__(self, name):
+	def __init__(self, name: str):
 		"""Initialize the object
 		Should create a list of cards (ex. "A♤")
 		Should have a name (incase multiple decks are initialized)"""
@@ -50,8 +50,8 @@ class Deck(object):
 
 	def cut_from_top(self, num):
 		"""Takes a number and removes that amount of cards from the top of the deck"""
-		if not num.isdigit():
-			print(f"You have to provide an actual number.  What does it mean to remove {num} cards from the deck?")
+		if not isinstance(num, int):
+			print(f"You have to provide an actual number.  What does it mean to remove \"{num}\" cards from the deck?")
 		elif num > len(self.deck):
 			print("You're trying to remove more cards from the deck than are in it...")
 		elif num < 1:
@@ -87,3 +87,6 @@ class Deck(object):
 		"""displays all cards in deck"""
 		for i in range(0, int(len(self.deck) / 4)):
 			print(self.deck[i].rjust(3, ' '), self.deck[i+13].rjust(3, ' '), self.deck[i+26].rjust(3, ' '), self.deck[i+26].rjust(3, ' '), self.deck[i+39].rjust(3, ' '))
+
+	def get_count(self):
+		return len(self.deck)
