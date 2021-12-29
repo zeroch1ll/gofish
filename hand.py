@@ -2,26 +2,27 @@
 
 
 class Hand(object):
-    def __init__(self, name: str, npc: bool):
+    def __init__(self,):
         """Initializes a new hand with a name, 
         a bool value indicating NPC or not,
         an empty list of cards"""
-        self.name = name
-        self.is_npc = npc
-        self.cards = [str]
-        self.books = [list] # matches go here
-        return
+        self.name = ""
+        self.is_npc = bool
+        self.cards = []
+        self.books = [] # matches go here
+        
     
     def show_hand(self):
         """Prints the cards in the hand"""
+        print("[>] Your current hand is: ")
         for card in self.cards:
-            print(card, )
-        return
+            print(card + " ", end="")
+        
 
     def handle_matches_in_hand(self):
         """Will check for any matches in the hand and
         then add them to the books list"""
-        temp = [str]
+        temp = []
 
         for x in range(0, len(self.cards) - 1):
             prime_card = self.cards[x]

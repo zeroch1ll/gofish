@@ -4,7 +4,7 @@ import time
 
 class Deck(object):
 	"""A deck of cards"""
-	def __init__(self, name: str):
+	def __init__(self, name = "Ocean"):
 		"""Initialize the object
 		Should create a list of cards (ex. "A♤")
 		Should have a name (incase multiple decks are initialized)"""
@@ -50,6 +50,7 @@ class Deck(object):
 
 	def cut_from_top(self, num):
 		"""Takes a number and removes that amount of cards from the top of the deck"""
+		temp = []
 		if not isinstance(num, int):
 			print(f"You have to provide an actual number.  What does it mean to remove \"{num}\" cards from the deck?")
 		elif num > len(self.deck):
@@ -59,9 +60,10 @@ class Deck(object):
 		else:
 			print(f"Okay, going to remove {num} cards from the top of the {self.name} deck.") 
 			for x in range(0,num):
-				self.deck.pop(x)
+				temp.append(self.deck.pop(x))
 			
 			print(f"There are now {len(self.deck)} cards in the {self.name} deck.")
+			return temp
 
 	def cut_from_mid(self, num):
 		"""Takes a number and removes that amount of cards from the middle of the deck"""
