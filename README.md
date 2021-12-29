@@ -1,2 +1,2 @@
-# gophish
-will be a game of gophish
+# gofish
+will be a game of gofish
