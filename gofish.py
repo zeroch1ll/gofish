@@ -107,6 +107,7 @@ class GoFish(object):
 				if count > 0:
 					print(f"{self.npc.name}: Yep :| ")
 					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
+					
 					return 1
 				else:
 					print(f"{self.npc.name}: Nope! Go fish!")

@@ -57,6 +57,9 @@ class Deck(object):
 			print("You're trying to remove more cards from the deck than are in it...")
 		elif num < 1:
 			print("How do you expect to *remove* less than one card?")
+		elif num == 1:
+			print(f"Alrighty, taking a card off the top of the {self.name} deck.")
+			return self.deck.pop()
 		else:
 			print(f"Okay, going to remove {num} cards from the top of the {self.name} deck.") 
 			for x in range(0,num):

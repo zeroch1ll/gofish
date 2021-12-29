@@ -24,10 +24,10 @@ class Hand(object):
         then add them to the books list"""
         temp = []
 
-        for x in range(0, len(self.cards) - 1):
+        for x in range(0, len(self.cards) - 2):
             prime_card = self.cards[x]
             count = 0
-            for y in range(x + 1, len(self.cards)):
+            for y in range(x + 1, len(self.cards)- 1):
                 second_card = self.cards[y]
                 if prime_card[0] == second_card[0]:
                     temp.append(self.cards.pop(y))

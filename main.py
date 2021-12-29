@@ -23,9 +23,11 @@ def main():
     while game.deck.get_count != 0:
         while game.current_turn == game.player.name:
             game.player.show_hand()
+            game.player.handle_matches_in_hand()
             while True:
                 fish = input(game_prompt)
                 if game.handle_player_fishing(fish) != -1:
+                    game.player.handle_matches_in_hand()
                     break
 
             game.current_turn = game.npc.name
