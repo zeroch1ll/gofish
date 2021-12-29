@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import Deck
+from Deck import Deck
 
 def main():
 
