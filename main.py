@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from gofish import GoFish
+import time
 
 def main():
 
@@ -15,6 +16,11 @@ def main():
         while game.current_turn == game.npc.name:
             # Do Stuff
             game.current_turn = game.player.name
+
+    game.end_game()
+    
+
+        
 
 if __name__ == "__main__":
 	main()

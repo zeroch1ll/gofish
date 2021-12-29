@@ -71,6 +71,247 @@ class GoFish(object):
 			print("[+] Deck and hands are setup -- It's time to start [+]")
 			self.start_time = time.time_ns()
 
-		
+	def end_game(self):
+		"""Carries out final steps of game,
+		including score"""
+
+		self.stop_time = time.time_ns()
+		total_time = (self.stop_time - self.start_time) / 60000000000
+
+		if len(self.player.books) > len(self.npc.books):
+			winner = self.player.name + f" with {len(self.player.books)} books!"
+		elif len(self.player.books) < len(self.npc.books):
+			winner = self.npc.name + f" with {len(self.npc.books)} books!"
+		else:
+			winner = "... actually, it was a tie lol"
+
+		print(f"""
+			[+] The game is over! [+]
+			[+] The winner is {winner} [+]
+			[+] It took {total_time} minutes -- wow [+]""")
+
+	def handle_player_fishing(self, fish: str):
+		"""Handles a fishing request from the player.
+		This must be in the form of 'Do you have any Xs?',
+		otherwise, will throw an error."""
+		request = "Do you have any "
+		if request not in fish:
+			print("[-] You need to ask the right way or else we just won't get anywhere [-]")
+			return 0
+		else:
+			requested_card = fish.split(request)[1].split("s?")
+
+			if requested_card.lower() == "two" or requested_card == "2":
+				count = 0
+				for card in self.npc.cards:
+					if card[0] == "2":
+						self.player.add_card(card)
+						self.npc.discard_card(card)
+						count += 1
+				if count > 0:
+					print(f"{self.npc.name}: \"Yep\" :| ")
+					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
+					return 1
+				else:
+					print(f"{self.npc.name}: Nope! Go fish!")
+					self.player.add_card(self.deck.cut_from_top(1))
+					print(f"[-] {self.player.name} had to draw a card from the {self.deck.name} deck [-]")
+					return 1
+			elif requested_card.lower() == "three" or requested_card == "3":
+				count = 0
+				for card in self.npc.cards:
+					if card[0] == "3":
+						self.player.add_card(card)
+						self.npc.discard_card(card)
+						count += 1
+				if count > 0:
+					print(f"{self.npc.name}: \"Yep\" :| ")
+					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
+					return 1
+				else:
+					print(f"{self.npc.name}: Nope! Go fish!")
+					self.player.add_card(self.deck.cut_from_top(1))
+					print(f"[-] {self.player.name} had to draw a card from the {self.deck.name} deck [-]")
+					return 1
+			elif requested_card.lower() == "four" or requested_card == "4":
+				count = 0
+				for card in self.npc.cards:
+					if card[0] == "4":
+						self.player.add_card(card)
+						self.npc.discard_card(card)
+						count += 1
+				if count > 0:
+					print(f"{self.npc.name}: \"Yep\" :| ")
+					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
+					return 1
+				else:
+					print(f"{self.npc.name}: Nope! Go fish!")
+					self.player.add_card(self.deck.cut_from_top(1))
+					print(f"[-] {self.player.name} had to draw a card from the {self.deck.name} deck [-]")
+					return 1
+			elif requested_card.lower() == "five" or requested_card == "5":
+				count = 0
+				for card in self.npc.cards:
+					if card[0] == "5":
+						self.player.add_card(card)
+						self.npc.discard_card(card)
+						count += 1
+				if count > 0:
+					print(f"{self.npc.name}: \"Yep\" :| ")
+					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
+					return 1
+				else:
+					print(f"{self.npc.name}: Nope! Go fish!")
+					self.player.add_card(self.deck.cut_from_top(1))
+					print(f"[-] {self.player.name} had to draw a card from the {self.deck.name} deck [-]")
+					return 1
+			elif "six" in requested_card.lower() or requested_card == "6":
+				count = 0
+				for card in self.npc.cards:
+					if card[0] == "6":
+						self.player.add_card(card)
+						self.npc.discard_card(card)
+						count += 1
+				if count > 0:
+					print(f"{self.npc.name}: \"Yep\" :| ")
+					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
+					return 1
+				else:
+					print(f"{self.npc.name}: Nope! Go fish!")
+					self.player.add_card(self.deck.cut_from_top(1))
+					print(f"[-] {self.player.name} had to draw a card from the {self.deck.name} deck [-]")
+					return 1
+			elif requested_card.lower() == "seven" or requested_card == "7":
+				count = 0
+				for card in self.npc.cards:
+					if card[0] == "7":
+						self.player.add_card(card)
+						self.npc.discard_card(card)
+						count += 1
+				if count > 0:
+					print(f"{self.npc.name}: \"Yep\" :| ")
+					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
+					return 1
+				else:
+					print(f"{self.npc.name}: Nope! Go fish!")
+					self.player.add_card(self.deck.cut_from_top(1))
+					print(f"[-] {self.player.name} had to draw a card from the {self.deck.name} deck [-]")
+					return 1
+			elif requested_card.lower() == "eight" or requested_card == "8":
+				count = 0
+				for card in self.npc.cards:
+					if card[0] == "8":
+						self.player.add_card(card)
+						self.npc.discard_card(card)
+						count += 1
+				if count > 0:
+					print(f"{self.npc.name}: \"Yep\" :| ")
+					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
+					return 1
+				else:
+					print(f"{self.npc.name}: Nope! Go fish!")
+					self.player.add_card(self.deck.cut_from_top(1))
+					print(f"[-] {self.player.name} had to draw a card from the {self.deck.name} deck [-]")
+					return 1
+			elif requested_card.lower() == "nine" or requested_card == "9":
+				count = 0
+				for card in self.npc.cards:
+					if card[0] == "9":
+						self.player.add_card(card)
+						self.npc.discard_card(card)
+						count += 1
+				if count > 0:
+					print(f"{self.npc.name}: \"Yep\" :| ")
+					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
+					return 1
+				else:
+					print(f"{self.npc.name}: Nope! Go fish!")
+					self.player.add_card(self.deck.cut_from_top(1))
+					print(f"[-] {self.player.name} had to draw a card from the {self.deck.name} deck [-]")
+					return 1
+			elif requested_card.lower() == "ten" or requested_card == "10":
+				count = 0
+				for card in self.npc.cards:
+					if card[0] == "10":
+						self.player.add_card(card)
+						self.npc.discard_card(card)
+						count += 1
+				if count > 0:
+					print(f"{self.npc.name}: \"Yep\" :| ")
+					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
+					return 1
+				else:
+					print(f"{self.npc.name}: Nope! Go fish!")
+					self.player.add_card(self.deck.cut_from_top(1))
+					print(f"[-] {self.player.name} had to draw a card from the {self.deck.name} deck [-]")
+					return 1
+			elif requested_card.lower() == "jack" or requested_card.upper() == "J":
+				count = 0
+				for card in self.npc.cards:
+					if card[0] == "J":
+						self.player.add_card(card)
+						self.npc.discard_card(card)
+						count += 1
+				if count > 0:
+					print(f"{self.npc.name}: \"Yep\" :| ")
+					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
+					return 1
+				else:
+					print(f"{self.npc.name}: Nope! Go fish!")
+					self.player.add_card(self.deck.cut_from_top(1))
+					print(f"[-] {self.player.name} had to draw a card from the {self.deck.name} deck [-]")
+					return 1
+			elif requested_card.lower() == "queen" or requested_card.upper() == "Q":
+				count = 0
+				for card in self.npc.cards:
+					if card[0] == "Q":
+						self.player.add_card(card)
+						self.npc.discard_card(card)
+						count += 1
+				if count > 0:
+					print(f"{self.npc.name}: \"Yep\" :| ")
+					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
+					return 1
+				else:
+					print(f"{self.npc.name}: Nope! Go fish!")
+					self.player.add_card(self.deck.cut_from_top(1))
+					print(f"[-] {self.player.name} had to draw a card from the {self.deck.name} deck [-]")
+					return 1
+			elif requested_card.lower() == "king" or requested_card.upper() == "K":
+				count = 0
+				for card in self.npc.cards:
+					if card[0] == "K":
+						self.player.add_card(card)
+						self.npc.discard_card(card)
+						count += 1
+				if count > 0:
+					print(f"{self.npc.name}: \"Yep\" :| ")
+					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
+					return 1
+				else:
+					print(f"{self.npc.name}: Nope! Go fish!")
+					self.player.add_card(self.deck.cut_from_top(1))
+					print(f"[-] {self.player.name} had to draw a card from the {self.deck.name} deck [-]")
+					return 1
+			elif requested_card.lower() == "ace" or requested_card.upper() == "A":
+				count = 0
+				for card in self.npc.cards:
+					if card[0] == "A":
+						self.player.add_card(card)
+						self.npc.discard_card(card)
+						count += 1
+				if count > 0:
+					print(f"{self.npc.name}: \"Yep\" :| ")
+					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
+					return 1
+				else:
+					print(f"{self.npc.name}: Nope! Go fish!")
+					self.player.add_card(self.deck.cut_from_top(1))
+					print(f"[-] {self.player.name} had to draw a card from the {self.deck.name} deck [-]")
+					return 1
+			else:
+				print("[-] What are you even trying to do right now? [-]")
+				return 0
+
 
 		
