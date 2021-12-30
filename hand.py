@@ -68,6 +68,3 @@ class Hand(object):
                 for card in book:
                     if card_type in card:
                         book.append(cards)
-    
-    
-    

@@ -4,10 +4,6 @@ from deck import Deck
 from hand import Hand
 import time
 
-
-
-
-
 class GoFish(object):
 	def __init__(self):
 		self.player = Hand()
@@ -107,7 +103,7 @@ class GoFish(object):
 				if count > 0:
 					print(f"{self.npc.name}: Yep :| ")
 					print(f"[+] {self.player.name} received {count} cards from {self.npc.name} [+]")
-					
+
 					return 1
 				else:
 					print(f"{self.npc.name}: Nope! Go fish!")
@@ -309,6 +305,3 @@ class GoFish(object):
 			else:
 				print("[-] What are you even trying to do right now? [-]")
 				return 0
-
-
-		
